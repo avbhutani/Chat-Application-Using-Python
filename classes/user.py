@@ -28,5 +28,5 @@ class User:
                 underscore_count += 1
             if((i not in arr and ascii_value not in range(97,122)) or underscore_count>2):
                 return False
-            
+             
         return True

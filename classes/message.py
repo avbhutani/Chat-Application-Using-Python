@@ -7,7 +7,9 @@ class Message:
         this.timeStamp = time.time()
         this.sender = sender
         this.receiver = receiver
-        this.msg = input(sender + ":")
+        
+    def setMessage(this,msg):
+        this.msg = msg
 
     def getSender(this):
         return this.sender
@@ -20,4 +22,4 @@ class Message:
     
     def getMessageId(this):
         return this.messageId
-    
+     

@@ -1,5 +1,7 @@
 import classes.user as user
 import pickle
+import classes.dataBaseHandler as dataBaseHandler
+dbAdmin = dataBaseHandler.DatabaseHandler()
 
 class Users:
     def __init__(this):
@@ -10,8 +12,7 @@ class Users:
         temp_user = user.User(username)
         if((temp_user.checkValidUsername(username) )and (not this.checkExistence(username))):
             this.userList.append(temp_user)
-            with open('database/usersList.txt','wb') as outfile:
-                pickle.dump(this.userList,outfile)
+            dbAdmin.updateDatabase(this.userList,"database/usersList")
             
     def removeUser(this,username):
         for i in this.userList:
@@ -27,11 +28,7 @@ class Users:
                 temp_user.setDetails(key,value)
                 with open('database/usersList.txt','wb') as outfile:
                     pickle.dump(this.userList,outfile)
-                  
-    def showAllUsers(this):
-        for i in this.userList:
-            print(i.username)
-
+                   
     def checkExistence(this,username):
         for i in this.userList:
             if(i.getUsername() == username):
