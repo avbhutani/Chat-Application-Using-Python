@@ -12,3 +12,4 @@ class DatabaseHandler:
     def updateDatabase(this,arguementList,path):
         with open(path+ '.txt','wb') as outfile:
             pickle.dump(arguementList,outfile)
+        

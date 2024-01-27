@@ -1,6 +1,8 @@
 import classes.message as message
 import classes.users as users
-import classes.dataBaseHandler as dataBaseHandler
+import classes.databasehandler as dataBaseHandler
+import os 
+
 usersAdmin = users.Users()
 dataBaseAdmin = dataBaseHandler.DatabaseHandler()
 class Messages:
@@ -10,7 +12,10 @@ class Messages:
         this.receiver = receiver
         usersAdmin.addUser(sender)
         usersAdmin.addUser(receiver)
-        
+    
+    def checkFileStatus(this,path):
+        return os.stat(path).st_size 
+    
     def returnDataBaseContent(this,path):
         dataBaseAdmin = dataBaseHandler.DatabaseHandler()
         return dataBaseAdmin.fetchDatabase(path)
